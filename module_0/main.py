@@ -3,7 +3,7 @@ def game_core(number):
        Функция принимает загаданное число и возвращает число попыток'''
     count = 0
     min_d=1
-    max_d=100
+    max_d=10000
     predict = int((max_d-min_d)/2)
     if number == min_d or number == max_d:
         return (1)
