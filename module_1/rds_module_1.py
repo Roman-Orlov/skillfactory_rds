@@ -7,4 +7,4 @@ from collections import Counter
 data = pd.read_csv('data.csv')
 data['profit'] = data['revenue'] - data['budget']
 year_08 = data[data.release_year==2008]
-year_08[data.profit == data.profit.max()]
+year_08[year_08.profit == year_08.profit.max()]
