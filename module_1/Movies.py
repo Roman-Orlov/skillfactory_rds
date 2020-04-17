@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[6]:
+# In[30]:
 
 
 import numpy as np
@@ -13,14 +13,14 @@ from collections import Counter
 #print(os.listdir("../input"))
 
 
-# In[7]:
+# In[31]:
 
 
 data = pd.read_csv('data.csv')
 data.head(5)
 
 
-# In[8]:
+# In[32]:
 
 
 len(data)
@@ -28,7 +28,7 @@ len(data)
 
 # # Предобработка датасета
 
-# In[9]:
+# In[33]:
 
 
 answer_ls = [] # создадим список с ответами. сюда будем добавлять ответы по мере прохождения теста
@@ -43,13 +43,13 @@ answer_ls = [] # создадим список с ответами. сюда б�
 # 4. The Warrior's Way	(tt1032751)
 # 5. Pirates of the Caribbean: On Stranger Tides (tt1298650)
 
-# In[10]:
+# In[34]:
 
 
 data[data.budget==data.budget.max()]
 
 
-# In[11]:
+# In[35]:
 
 
 # тут вводим ваш ответ и добавлем в его список ответов (сейчас для примера стоит "1")
@@ -63,13 +63,13 @@ answer_ls.append(4)
 # 4. Pearl Harbor	(tt0213149)
 # 5. Alexander	(tt0346491)
 
-# In[7]:
+# In[36]:
 
 
 data[data.runtime==data.runtime.max()]
 
 
-# In[8]:
+# In[37]:
 
 
 answer_ls.append(2)
@@ -84,13 +84,13 @@ answer_ls.append(2)
 # 4. Corpse Bride	tt0121164
 # 5. Hoodwinked!	tt0443536
 
-# In[9]:
+# In[38]:
 
 
 data[data.runtime==data.runtime.min()]
 
 
-# In[10]:
+# In[39]:
 
 
 answer_ls.append(3)
@@ -106,13 +106,13 @@ answer_ls.append(3)
 # 5. 100
 # 
 
-# In[11]:
+# In[40]:
 
 
 data.runtime.mean()
 
 
-# In[12]:
+# In[41]:
 
 
 answer_ls.append(2)
@@ -129,13 +129,13 @@ answer_ls.append(2)
 # 
 # 
 
-# In[13]:
+# In[42]:
 
 
 data.runtime.median()
 
 
-# In[14]:
+# In[43]:
 
 
 answer_ls.append(1)
@@ -149,14 +149,14 @@ answer_ls.append(1)
 # 4. Furious 7	tt2820852
 # 5. Avatar	tt0499549
 
-# In[15]:
+# In[44]:
 
 
 data['profit'] = data['revenue'] - data['budget']
 data[data.profit==data.profit.max()]
 
 
-# In[16]:
+# In[45]:
 
 
 answer_ls.append(5)
@@ -170,13 +170,13 @@ answer_ls.append(5)
 # 4. The Adventures of Pluto Nash	tt0180052
 # 5. The Lone Ranger	tt1210819
 
-# In[17]:
+# In[46]:
 
 
 data[data.profit==data.profit.min()]
 
 
-# In[18]:
+# In[47]:
 
 
 answer_ls.append(2)
@@ -191,13 +191,13 @@ answer_ls.append(2)
 # 5. 1398
 # 
 
-# In[19]:
+# In[48]:
 
 
 data[data.profit>0].count()
 
 
-# In[20]:
+# In[49]:
 
 
 answer_ls.append(1)
@@ -211,14 +211,14 @@ answer_ls.append(1)
 # 4. The Dark Knight	tt0468569
 # 5. Mamma Mia!	tt0795421
 
-# In[21]:
+# In[50]:
 
 
 year_08 = data[data.release_year==2008]
 year_08[year_08.profit == year_08.profit.max()]
 
 
-# In[22]:
+# In[51]:
 
 
 answer_ls.append(4)
@@ -233,14 +233,14 @@ answer_ls.append(4)
 # 5. The Lone Ranger	tt1210819
 # 
 
-# In[23]:
+# In[52]:
 
 
 year_02_14 = data[(data.release_year<=2014) & (data.release_year>=2012)]
 year_02_14[year_02_14.profit == year_02_14.profit.min()]
 
 
-# In[24]:
+# In[53]:
 
 
 answer_ls.append(5)
@@ -254,7 +254,7 @@ answer_ls.append(5)
 # 4. Comedy
 # 5. Thriller
 
-# In[25]:
+# In[54]:
 
 
 Set = data.genres.unique()
@@ -271,7 +271,7 @@ for a in set_genres:
 max_genres[max_genres.Qnt == max_genres.Qnt.max()]    
 
 
-# In[26]:
+# In[55]:
 
 
 answer_ls.append(3)
@@ -285,7 +285,7 @@ answer_ls.append(3)
 # 4. Thriller
 # 5. Adventure
 
-# In[27]:
+# In[56]:
 
 
 for a in set_genres:
@@ -293,7 +293,7 @@ for a in set_genres:
 max_genres[max_genres.Qnt == max_genres.Qnt.max()] 
 
 
-# In[28]:
+# In[57]:
 
 
 answer_ls.append(1)
@@ -307,7 +307,7 @@ answer_ls.append(1)
 # 4. Christopher Nolan
 # 5. Clint Eastwood
 
-# In[29]:
+# In[58]:
 
 
 set_of_director =[]
@@ -323,7 +323,7 @@ for a in set_of_director:
 by_director[by_director.Qnt == by_director.Qnt.max()]  
 
 
-# In[30]:
+# In[59]:
 
 
 answer_ls.append(3)
@@ -337,7 +337,7 @@ answer_ls.append(3)
 # 4. Ridley Scott
 # 5. Christopher Nolan
 
-# In[31]:
+# In[60]:
 
 
 for a in set_of_director:
@@ -345,7 +345,7 @@ for a in set_of_director:
 by_director[by_director.Qnt == by_director.Qnt.max()]
 
 
-# In[32]:
+# In[61]:
 
 
 answer_ls.append(4)
@@ -360,7 +360,7 @@ answer_ls.append(4)
 # 5. Peter Jackson
 # 
 
-# In[33]:
+# In[62]:
 
 
 for a in set_of_director:
@@ -368,7 +368,7 @@ for a in set_of_director:
 by_director[by_director.Sum == by_director.Sum.max()]
 
 
-# In[34]:
+# In[63]:
 
 
 answer_ls.append(5)
@@ -382,7 +382,7 @@ answer_ls.append(5)
 # 4. Orlando Bloom
 # 5. Rupert Grint
 
-# In[35]:
+# In[64]:
 
 
 set_of_actors =[]
@@ -398,7 +398,7 @@ for a in set_of_actors:
 by_actors[by_actors.Sum_profit == by_actors.Sum_profit.max()]  
 
 
-# In[36]:
+# In[65]:
 
 
 answer_ls.append(1)
@@ -834,10 +834,10 @@ df['result'] = [ all([ any(d_1p.original_title == test_m) for test_m in test_ms]
 df
 
 
-# In[13]:
+# In[22]:
 
 
-answer_ls.append(3)
+answer_ls.append(1)
 
 
 # # 35. Какие актеры чаще всего снимаются в одном фильме вместе
@@ -848,10 +848,24 @@ answer_ls.append(3)
 # 4. Adam Sandler & Kevin James
 # 5. Daniel Radcliffe & Rupert Grint
 
+# In[66]:
+
+
+import collections
+data['cast_parsed'] = [sorted(d) for d in data.cast.str.split('|')]
+#display(data[['cast_parsed', 'cast']].head())
+c = collections.Counter(set_of_actors)
+for df in data.cast_parsed:
+    for i in range(len(df) - 1):
+        for j in range(1, len(df) - i):
+            c[df[i] +' & ' + df[i+j]] += 1
+c.most_common(5)
+
+
 # In[ ]:
 
 
-answer_ls.append(1)
+answer_ls.append(5)
 
 
 # # 36. У какого из режиссеров выше вероятность выпустить фильм в прибыли? (5 баллов)101
@@ -862,27 +876,61 @@ answer_ls.append(1)
 # 4. Christopher Nolan
 # 5. Clint Eastwood
 
-# In[ ]:
+# In[69]:
 
 
+profit = []
+director = []
+for idex,row in data_director_p.iterrows():
+    for i in row.director_parsed:
+        profit.append(row.profit)
+        director.append(i)
+df = pd.DataFrame(director, columns=['director'])
+df['profit'] = profit
+df
+def f_all(x):
+    poz = len(x[x.profit > 0])
+    neg = len(x[x.profit < 0])
+    all = len(x)
+    return [all, poz, neg, poz/all]
+#    return poz/all
+def f_pos(x):
+    poz = len(x[x > 0])
+#    neg = len(x[x < 0])
+#    all = len(x)
+    return poz
+def f_prc(x):
+    poz = len(x[x.profit > 0])
+    neg = len(x[x.profit < 0])
+    all = len(x)
+    return poz/all
+
+s = pd.DataFrame(df.groupby('director')['profit'].apply(f_pos)).reset_index()
+
+df1_count = pd.DataFrame(df.groupby('director').count()).reset_index()
+s.columns = ['director', 'positive']
+s['q'] = df1_count.profit
+
+s['percent'] = s.positive / s.q *100
+ss = s.sort_values(by=['percent','q'], ascending=False)
+ss.head(20)
 
 
+# In[70]:
 
-# In[ ]:
 
-
-answer_ls.append(1)
+answer_ls.append(4)
 
 
 # # Submission
 
-# In[6]:
+# In[71]:
 
 
 len(answer_ls)
 
 
-# In[5]:
+# In[72]:
 
 
 pd.DataFrame({'Id':range(1,len(answer_ls)+1), 'Answer':answer_ls}, columns=['Id', 'Answer'])
